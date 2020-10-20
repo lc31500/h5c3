@@ -13,6 +13,13 @@ $(function () {
             /*index 序号 1开始 当前屏的序号*/
             $('.section').eq(index-1).addClass('now')
         },
+        /*离开某一个页面的时候触发*/
+        onLeave:function(index,nextIndex,direction){
+            if(index == 2 && nextIndex == 3){
+                /*当前是从第二页到第三页*/
+                $('.section').eq(index-1).addClass('leaved');
+            }
+        },
         /*点击更多切换下一页*/
         /*最好在组件初始化完毕或者插件内容渲染完毕*/
         afterRender:function () {

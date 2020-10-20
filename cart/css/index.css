@@ -95,6 +95,7 @@
     left: 292px;
     top: 132px;
     opacity: 0;
+    z-index: 1001;
 }
 .screen02 .input{
     position: absolute;
@@ -166,4 +167,23 @@
         opacity: 1;
     }
 
+}
+/*沙发做动画 当离开第二屏的时候*/
+.screen02.leaved .sofa{
+    animation: sofa02 1s linear forwards;
+}
+@keyframes sofa02 {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 1;
+        /*沙发下移*/
+        transform: translate(-80px,960px);
+    }
+}
+
+/*第三屏*/
+.screen03{
+    background: url("../images/03-bg.png")  no-repeat center bottom;
 }
