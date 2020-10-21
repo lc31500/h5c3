@@ -170,7 +170,7 @@
 }
 /*沙发做动画 当离开第二屏的时候*/
 .screen02.leaved .sofa{
-    animation: sofa02 1s linear forwards;
+    animation: sofa02 1s linear;
 }
 @keyframes sofa02 {
     from{
@@ -186,4 +186,47 @@
 /*第三屏*/
 .screen03{
     background: url("../images/03-bg.png")  no-repeat center bottom;
+}
+.screen03 .sofa{
+    position: absolute;
+    left: 212px;
+    top: 181px;
+    display: none;
+}
+.screen03 .change{
+    position: absolute;
+    right: 115px;
+    bottom: 170px;
+}
+.screen03 .change img:last-child{
+    position: absolute;
+    opacity: 0;
+}
+.screen03 .cart{
+    position: absolute;
+    right: 192px;
+    bottom: 100px;
+}
+.screen03 .cart img:last-child{
+    position: absolute;
+    opacity: 0;
+}
+.screen03.now .change img:first-child{
+    display: none;
+}
+.screen03.now .change img:last-child{
+    position: static;
+    opacity: 1;
+    transition: all 1s linear;
+}
+.screen03.now .cart img:first-child{
+    display: none;
+}
+.screen03.now .cart img:last-child{
+    position: static;
+    opacity: 1;
+    transition: all 1s linear;
+}
+.screen03.now .sofa{
+    display: block;
 }
