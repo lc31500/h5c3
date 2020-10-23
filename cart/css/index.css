@@ -230,3 +230,34 @@
 .screen03.now .sofa{
     display: block;
 }
+
+/*第四屏*/
+.screen04{
+    background: url("../images/04-bg.png") no-repeat center bottom;
+}
+.screen04 .cloud{
+    position: absolute;
+    left: -400px;
+    top: -50px;
+    animation: cloud04 20s linear infinite alternate;
+}
+@keyframes cloud04 {
+    from{
+
+    }
+    to{
+        transform: translateX(1000px);
+    }
+}
+.screen04 .text{
+    text-align: center;
+    margin-top: 100px;
+}
+.screen04 .text img:last-child{
+    position: absolute;
+    opacity: 0;
+}
+.screen04 .cart{
+    text-align: center;
+    margin-top: 80px;
+}
