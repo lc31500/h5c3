@@ -18,6 +18,9 @@ $(function () {
             if(index == 2 && nextIndex == 3){
                 /*当前是从第二页到第三页*/
                 $('.section').eq(index-1).addClass('leaved');
+            }else if(index == 3 && nextIndex == 4){
+                /*当前是从第三页到第四页*/
+                $('.section').eq(index-1).addClass('leaved');
             }
         },
         /*点击更多切换下一页*/
@@ -28,9 +31,16 @@ $(function () {
             /*2.jquery本身没有的方法通过$.fn的方式追加方法 认为是插件方法*/
 
             /*点击更多切换下一页*/
-            $('.more').on('click',function () {
+            $('.more').on('click', function () {
                 $.fn.fullpage.moveSectionDown();
-            })
-        }
+            });
+
+            $('.screen04 .cart').on('transitionend', function () {
+                $('.screen04 .address').show().find('img:last').fadeIn(1000);
+                $('.screen04 .text').addClass('show');
+            });
+        },
+        /*页面切换的时间，默认是700*/
+        scrollingSpeed:1000
     });
 });

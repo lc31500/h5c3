@@ -189,8 +189,8 @@
 }
 .screen03 .sofa{
     position: absolute;
-    left: 212px;
-    top: 181px;
+    left: 217px;
+    top: 155px;
     display: none;
 }
 .screen03 .change{
@@ -229,8 +229,23 @@
 }
 .screen03.now .sofa{
     display: block;
+    z-index: 1001;
 }
 
+.screen03.leaved .sofa {
+    /*旋转之后坐标轴也会旋转*/
+    /*1.组合写法 多个转换属性之间空格 transform:rotate() translateX() skew() scale()*/
+    /*2.如果你先旋转 那么坐标轴也会旋转*/
+    /*3.最好先位移再旋转*/
+    animation: sofa03 0.8s linear;
+
+}
+@keyframes sofa03 {
+    from{}
+    to{
+        transform: translate(190px,660px) rotate(45deg);
+    }
+}
 /*第四屏*/
 .screen04{
     background: url("../images/04-bg.png") no-repeat center bottom;
@@ -257,7 +272,60 @@
     position: absolute;
     opacity: 0;
 }
+.screen04 .text.show img:first-child{
+    position: absolute;
+    opacity: 0;
+}
+.screen04 .text.show img:last-child{
+    position: static;
+    opacity: 1;
+    transition: all 1s linear;
+}
+
 .screen04 .cart{
     text-align: center;
     margin-top: 80px;
+    position: relative;
+    z-index: 1002;
+}
+.screen04 .sofa{
+    position: absolute;
+    top: 200px;
+    left: 425px;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+/*1.掐时间  做延时  完成动画的衔接*/
+/*2.jquery的动画  $('dom').animate(property,duration,speed,callback) */
+/*speed  (swing linear) */
+/*3.能不能监听到动画或者过度的结束*/
+/*4.css3当中 过渡 transitionend  动画 animationend*/
+.screen04.now .sofa{
+    opacity: 1;
+    transform: translateX(1000px) rotate(45deg);
+    transition: transform 3s;
+}
+
+.screen04.now .cart{
+    transition: all 3s;
+    transform: translateX(1000px);
+}
+.screen04 .address{
+    position: absolute;
+    width: 283px;
+    height: 270px;
+    left: 50%;
+    /*css3居中 基于本身*/
+    transform: translateX(-50%);
+    bottom: 150px;
+    display: none;
+}
+.screen04 .address img:last-child{
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: none;
 }
